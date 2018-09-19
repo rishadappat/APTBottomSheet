@@ -28,13 +28,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //        let bottomSheetBuilder = BottomSheetBuilder().build(with: view)
 //        bottomSheetBuilder.show(from: self)
 //
-        let stringPicker = BottomSheetBuilder().buildStringPicker(with: ["dog", "cat", "parrot", "boat", "cricket", "java", "swift"], and: "Select items")
-        stringPicker.theme = .dark
-        stringPicker.show(from: self)
+//        let stringPicker = BottomSheetBuilder().buildStringPicker(with: ["dog", "cat", "parrot", "boat", "cricket", "java", "swift"], and: "Select items")
+//        stringPicker.theme = .dark
+//        stringPicker.show(from: self)
 //
-//        let datePicker = BottomSheetBuilder().buildDatePicker()
-//        datePicker.theme = .dark
+//        let datePicker = BottomSheetBuilder().buildDatePicker(withTitle: "Select Date")
+//        datePicker.theme = .light
 //        datePicker.show(from: self)
+        
+        let datePicker = BottomSheetBuilder().buildTimePicker(withTitle: "Select Time")
+        datePicker.theme = .light
+        datePicker.show(from: self)
         
 //        let dateTimePicker = BottomSheetBuilder().buildDateTimePicker()
 //        dateTimePicker.theme = .dark
@@ -45,7 +49,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let stringPicker = BottomSheetBuilder().buildStringPicker(with: ["dog", "cat", "parrot", "boat", "cricket", "java", "swift"], and: "Select items")
         stringPicker.theme = .dark
         stringPicker.show(from: self)
-        textField.inputView = stringPicker.bottomSheet?.picker
         return false
     }
 }

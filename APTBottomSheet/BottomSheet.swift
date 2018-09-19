@@ -67,7 +67,7 @@ class BottomSheet: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
             addBlureToView()
             setStringPicker()
         }
-        else if(type == BottomSheetType.datePicker || type == BottomSheetType.dateTimePicker)
+        else if(type == BottomSheetType.datePicker || type == BottomSheetType.dateTimePicker || type == BottomSheetType.timePicker)
         {
             addBlureToView()
             setDateOrDateTimePicker()
@@ -78,7 +78,7 @@ class BottomSheet: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     {
         self.view.addSubview(bottomSheetview!)
         addShadow(view: bottomSheetview!)
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.bottomSheetview?.frame.origin = CGPoint.init(x: 0, y: (self.bottomSheetview?.frame.origin.y)! - (self.bottomSheetview?.frame.size.height)!)
             self.bgView.frame.size.height = self.bgView.frame.size.height - (self.bottomSheetview?.frame.size.height)!
             self.bgView.alpha = 1.0
@@ -103,13 +103,23 @@ class BottomSheet: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     func setDateOrDateTimePicker()
     {
         addHeadeView()
-        
         datePicker = UIDatePicker.init(frame: CGRect.init(x: 0, y: 44, width: (bottomSheetview?.frame.size.width)!, height: (bottomSheetview?.frame.size.height)! - 44))
         let textColor = theme == Theme.light ? UIColor.black : UIColor.white
         datePicker.setValue(textColor, forKeyPath: "textColor")
         self.datePicker.backgroundColor = .clear
         bottomSheetview?.addSubview(datePicker)
-        datePicker.datePickerMode = type == BottomSheetType.datePicker ? .date : .dateAndTime
+        if(type == BottomSheetType.datePicker)
+        {
+             datePicker.datePickerMode = .date
+        }
+        else if(type == BottomSheetType.dateTimePicker)
+        {
+             datePicker.datePickerMode = .dateAndTime
+        }
+        else
+        {
+            datePicker.datePickerMode = .time
+        }
         datePicker.addTarget(self, action: #selector(BottomSheet.datePickerValueChanged), for: UIControl.Event.valueChanged)
         setBottomSheet()
     }
@@ -183,13 +193,20 @@ class BottomSheet: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     
     @objc func doneButtonClicked(_ sender: UIButton)
     {
-        
+        if(type == .stringPicker)
+        {
+            print(stringPickerData[picker.selectedRow(inComponent: 0)])
+        }
+        else
+        {
+            print(selectedDate!)
+        }
         dismissBottomSheet()
     }
     
     @objc func dismissBottomSheet()
     {
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.bottomSheetview?.frame.origin = CGPoint.init(x: 0, y: UIScreen.main.bounds.height)
             self.bgView.frame.size.height = self.view.frame.size.height
             self.bgView.alpha = 0.0
@@ -210,10 +227,6 @@ class BottomSheet: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         //print(stringPickerData[row])
         return stringPickerData[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(stringPickerData[row])
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {

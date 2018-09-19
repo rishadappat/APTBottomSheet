@@ -16,7 +16,7 @@ class BottomSheetBuilder: NSObject {
     var theme: BottomSheet.Theme!
     var title: String!
     
-    func build(with view: UIView, bottomSheetType type: BottomSheet.BottomSheetType) -> BottomSheetBuilder
+    private func build(with view: UIView, bottomSheetType type: BottomSheet.BottomSheetType) -> BottomSheetBuilder
     {
         bottomSheet = BottomSheet()
         bottomSheet?.type = type
@@ -64,17 +64,27 @@ class BottomSheetBuilder: NSObject {
         return build(with: view, bottomSheetType: BottomSheet.BottomSheetType.stringPicker)
     }
     
-    func buildDatePicker() -> BottomSheetBuilder
+    func buildDatePicker(withTitle title: String) -> BottomSheetBuilder
     {
         let view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250))
         view.backgroundColor = .clear
+        self.title = title
         return build(with: view, bottomSheetType: BottomSheet.BottomSheetType.datePicker)
     }
     
-    func buildDateTimePicker() -> BottomSheetBuilder
+    func buildDateTimePicker(withTitle title: String) -> BottomSheetBuilder
     {
         let view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250))
         view.backgroundColor = .clear
+        self.title = title
         return build(with: view, bottomSheetType: BottomSheet.BottomSheetType.dateTimePicker)
+    }
+    
+    func buildTimePicker(withTitle title: String) -> BottomSheetBuilder
+    {
+        let view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250))
+        view.backgroundColor = .clear
+        self.title = title
+        return build(with: view, bottomSheetType: BottomSheet.BottomSheetType.timePicker)
     }
 }
