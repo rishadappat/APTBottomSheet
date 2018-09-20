@@ -21,22 +21,40 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mybg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Dap-Is-lnP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4v-Rz-mD2">
-                                <rect key="frame" x="127.5" y="313.5" width="120" height="40"/>
-                                <color key="backgroundColor" red="0.1647058824" green="0.61960784310000006" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date Time Picker" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XFY-Rb-PuV">
+                                <rect key="frame" x="30" y="378.5" width="315" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="String Picker" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QK7-5z-d1M">
+                                <rect key="frame" x="30" y="258.5" width="315" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date Picker" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IBU-in-RqL">
+                                <rect key="frame" x="30" y="318.5" width="315" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5d-zt-XUF">
+                                <rect key="frame" x="112.5" y="498.5" width="150" height="30"/>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.62745098040000002" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="hfm-9g-KV4"/>
-                                    <constraint firstAttribute="height" constant="40" id="wVe-Pp-1sQ"/>
+                                    <constraint firstAttribute="width" constant="150" id="mzU-bT-Z9g"/>
+                                    <constraint firstAttribute="height" constant="30" id="yDW-ar-N3Z"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Show custom view">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="openBottomSheet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9yI-Q4-y2I"/>
+                                    <action selector="openBottomSheet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="91b-of-cJd"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QK7-5z-d1M">
-                                <rect key="frame" x="30" y="253.5" width="315" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time Picker" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V4f-GO-27O">
+                                <rect key="frame" x="30" y="438.5" width="315" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -44,20 +62,33 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="f4v-Rz-mD2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FYp-dn-oLz"/>
+                            <constraint firstItem="IBU-in-RqL" firstAttribute="top" secondItem="QK7-5z-d1M" secondAttribute="bottom" constant="30" id="9lB-WA-M2f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XFY-Rb-PuV" secondAttribute="trailing" constant="30" id="BKA-bg-EfT"/>
+                            <constraint firstItem="k5d-zt-XUF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="D7E-7x-3U1"/>
+                            <constraint firstItem="XFY-Rb-PuV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="DTe-jM-FS2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dap-Is-lnP" secondAttribute="trailing" id="Gbc-fV-YgD"/>
-                            <constraint firstItem="f4v-Rz-mD2" firstAttribute="top" secondItem="QK7-5z-d1M" secondAttribute="bottom" constant="30" id="HOP-PQ-cuB"/>
+                            <constraint firstItem="IBU-in-RqL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ICU-ve-zyc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V4f-GO-27O" secondAttribute="trailing" constant="30" id="MYf-Dl-RPT"/>
                             <constraint firstItem="Dap-Is-lnP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Rrt-RM-Xj4"/>
                             <constraint firstAttribute="bottom" secondItem="Dap-Is-lnP" secondAttribute="bottom" id="UsX-2D-LJh"/>
-                            <constraint firstItem="f4v-Rz-mD2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cu4-S8-m0H"/>
+                            <constraint firstItem="IBU-in-RqL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ae0-SN-ftv"/>
+                            <constraint firstItem="k5d-zt-XUF" firstAttribute="top" secondItem="V4f-GO-27O" secondAttribute="bottom" constant="30" id="cOT-BK-CsE"/>
+                            <constraint firstItem="V4f-GO-27O" firstAttribute="top" secondItem="XFY-Rb-PuV" secondAttribute="bottom" constant="30" id="gMa-tI-1WU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QK7-5z-d1M" secondAttribute="trailing" constant="30" id="kXi-y6-1B2"/>
+                            <constraint firstItem="XFY-Rb-PuV" firstAttribute="top" secondItem="IBU-in-RqL" secondAttribute="bottom" constant="30" id="nWZ-Xt-wCc"/>
                             <constraint firstItem="QK7-5z-d1M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="q7C-2K-hiY"/>
+                            <constraint firstItem="IBU-in-RqL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="tlr-xO-uet"/>
                             <constraint firstItem="Dap-Is-lnP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uef-3r-jEq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IBU-in-RqL" secondAttribute="trailing" constant="30" id="uei-rj-Aq6"/>
+                            <constraint firstItem="V4f-GO-27O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="vmR-F1-Seu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="datePicker" destination="IBU-in-RqL" id="b6F-Gd-MgC"/>
+                        <outlet property="dateTimePicker" destination="XFY-Rb-PuV" id="wbj-Cf-yW0"/>
                         <outlet property="etSelectValue" destination="QK7-5z-d1M" id="zXx-IV-8ID"/>
+                        <outlet property="timePicker" destination="V4f-GO-27O" id="WND-ki-syt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

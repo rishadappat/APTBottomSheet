@@ -33,6 +33,7 @@ class BottomSheet: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     var selectedDate: Date!
     var completionHandler: ((_ success:Dictionary<String, Any>) -> Void)?
     var pickerTitle: String!
+    var builder: BottomSheetBuilder?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,7 +130,6 @@ class BottomSheet: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         dateFormatter.dateStyle = DateFormatter.Style.medium
         dateFormatter.timeStyle = DateFormatter.Style.none
         selectedDate = sender.date
-        print(dateFormatter.string(from: sender.date))
     }
     
     func addHeadeView()
@@ -195,11 +195,11 @@ class BottomSheet: UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     {
         if(type == .stringPicker)
         {
-            print(stringPickerData[picker.selectedRow(inComponent: 0)])
+            builder?.stringpickerdelegate?.stringPickerSelected(selected: stringPickerData[picker.selectedRow(inComponent: 0)], at: picker.selectedRow(inComponent: 0))
         }
         else
         {
-            print(selectedDate!)
+            builder?.datetimepickerdelegate?.dateTimePickerSelected(selected: datePicker.date)
         }
         dismissBottomSheet()
     }

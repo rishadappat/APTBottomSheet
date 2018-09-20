@@ -8,13 +8,25 @@
 
 import UIKit
 
+protocol stringPickerDelegate {
+    func stringPickerSelected(selected value: String, at row: Int)
+}
+
+protocol dateTimePickerDelegate {
+    func dateTimePickerSelected(selected date: Date)
+}
+
 class BottomSheetBuilder: NSObject {
     
+    var stringpickerdelegate: stringPickerDelegate?
+    var datetimepickerdelegate: dateTimePickerDelegate?
     var bottomSheet: BottomSheet?
     var stringPickerData: [String]!
     var stringPicker: UIPickerView!
     var theme: BottomSheet.Theme!
     var title: String!
+    var stringPickerCompletionHandler: ((_ selected:String, _ index: Int) -> Void)?
+    var dateTimePickerCompletionHandler: ((_ selected:Date) -> Void)?
     
     private func build(with view: UIView, bottomSheetType type: BottomSheet.BottomSheetType) -> BottomSheetBuilder
     {
@@ -27,8 +39,9 @@ class BottomSheetBuilder: NSObject {
         
         let bgView = UIView()
         bgView.frame = UIScreen.main.bounds
-        bgView.backgroundColor = theme == .light ? UIColor.black.withAlphaComponent(0.5) : UIColor.black.withAlphaComponent(0.3)
+        bgView.backgroundColor = theme == .light ? UIColor.black.withAlphaComponent(0.7) : UIColor.black.withAlphaComponent(0.3)
         bgView.alpha = 0
+        bottomSheet?.builder = self
         bottomSheet?.bgView = bgView
         
         bottomSheet?.pickerTitle = title
